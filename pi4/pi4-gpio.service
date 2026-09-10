@@ -1,0 +1,14 @@
+[Unit]
+Description=Pi4 Network GPIO Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fabian
+ExecStart=/usr/bin/python3 /opt/pi4-gpio/server.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
